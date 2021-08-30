@@ -26,6 +26,14 @@ connection.once('open', () => {
   console.log('MongoDB connection succesful');
 });
 
+//importing the route files for users and exercises
+//and calling on the application to use the routes
+const excersisesRouter = require('./routes/exercises');
+const usersRouter = require('./routes/users');
+
+app.use('/exercises', excersisesRouter);
+app.use('/users', usersRouter);
+
 //initiating the port to listen for the app
 app.listen(port, () => {
   console.log(`Server is running at port ${port}`);
